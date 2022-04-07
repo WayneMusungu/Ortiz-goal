@@ -1,0 +1,13 @@
+<!-- When we want a child component to communicate with a parent component, we make the child component emit an event that is taken up by the parent component. Let us make our child component GoalDetailComponent, communicate with its parent component, the GoalComponent. We'll do this by adding a button to the GoalDetailComponent that deletes a goal once we ascertain that we have completed it. -->
+<p>{{goal?.description}}</p>
+<p>This goal will be complete in {{goal?.completeDate|dateCount}} days</p>
+
+<!-- <button (click)= 'goalComplete(true)'>Complete</button>
+We can replace the complete button in the goal-detail component with a delete button that deletes a goal once we decide we want to get rid of it. Let's add this button to the goal-detail template. -->
+<!-- 
+<button (click)= 'goalDelete(true)'>Delete Goal</button> -->
+
+<button (click)= 'goalDelete(true)' class="btn btn-outline-danger">Delete Goal</button>
+
+
+

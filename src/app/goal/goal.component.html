@@ -1,0 +1,98 @@
+<!-- <div>
+  <h1>My Goals</h1>
+  <hr>
+  <ul>
+    <li *ngFor='let goal of goals'>
+      {{goal.name}}
+      <app-goal-detail [goal]='goal'></app-goal-detail>
+    </li>
+  </ul>
+</div> -->
+
+<!-- <h1>My Goals</h1>
+<hr>
+<ul>
+  <div *ngFor='let goal of goals;let i = index'>
+    <li>{{goal.name}}</li>
+    <button (click)='toggleDetails(i)'>Toggle Details</button>
+    <app-goal-detail *ngIf='goal.showDescription' [goal]='goal'></app-goal-detail>
+  </div>
+</ul>
+<p *ngIf='goals.length > 5'>You have too many goals</p> -->
+
+<!-- After that, we have created our goalComplete() function which calls the emit method on the isComplete EventEmitter. What this does is pass this event to the parent component. We, therefore, have to make the parent component process this event. Let's write the code for this in our parent component, GoalComponent. -->
+<!-- Inside the function, we have used the special variable, $event as a placeholder for the values that we expect to be emitted by the event. We have also passed in the index i of the goal item in the function.  -->
+
+
+<!-- When using appStrikethrough If our local server is still running, we see the goals have a line crossing the goal name which means that our directive actually works. That's great, right? However, using the directive this way is not helpful because we only wanted to strikethrough a goal if we have finished it. -->
+
+
+<!-- <h1>My Goals</h1>
+<hr>
+<ul>
+  <div *ngFor='let goal of goals;let i = index'>
+    <li appStrikethrough>{{goal.name}} due on {{goal.completeDate|date|uppercase}}</li>
+    <button (click)='toggleDetails(i)'>Toggle Details</button> -->
+    <!-- // We can replace the complete button in the goal-detail component with a delete button that deletes a goal once we decide we want to get rid of it. Let's add this button to the goal-detail template. --> 
+
+<!-- IMPORTANT -->
+    <!-- <app-goal-detail *ngIf='goal.showDescription' [goal]='goal' (isComplete) = 'completeGoal($event,i)'></app-goal-detail> -->
+
+
+<!-- 
+    <app-goal-detail *ngIf='goal.showDescription' [goal]='goal' (isComplete) = 'deleteGoal($event,i)'></app-goal-detail>
+  </div>
+</ul>
+<p *ngIf='goals.length < 7'>You have too little goals</p> -->
+
+
+<!-- <div class="container">
+  <h1>My Goals</h1>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div *ngFor='let goal of goals;let i = index'>
+        <div>
+          <h4 id={{i}} appStrikethrough>{{goal.name}} due on {{goal.completeDate|date|uppercase}}</h4>
+          <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button>
+        </div>
+
+        <div *ngIf='goal.showDescription'>
+          <app-goal-detail  [goal]='goal' (isComplete) = 'deleteGoal($event,i)'></app-goal-detail>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p *ngIf='goals.length > 5'>You have too many goals</p>
+</div> -->
+
+<div class="container">
+  <h1>ORTIZ GOALS</h1>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div *ngFor='let goal of goals;let i = index'>
+        <div>
+          <h6 id={{i}} appStrikethrough>{{goal.name}} due on {{goal.completeDate|date|uppercase}}</h6>
+          <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button>
+        </div>
+
+        <div *ngIf='goal.showDescription'>
+          <app-goal-detail  [goal]='goal' (isComplete) = 'deleteGoal($event,i)'></app-goal-detail>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <app-goal-form (addGoal)="addNewGoal($event)"></app-goal-form>
+    </div>
+  </div>
+  <p *ngIf='goals.length < 10'>Make sure to reach a target of 10 goals</p>
+</div>
+
+
+<!-- We have added the form to the right side of our goals array. This form only has input fields and angular does not know how to interact with it at this point. In angular, whenever we want to make HTML forms interact with the angular app, we need to import the forms module from angular forms. We do this by making this import in our root modules file, app.modules.ts.  -->
+
+

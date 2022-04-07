@@ -1,0 +1,6 @@
+/* We can  also load styles from external CSS files by adding a styleUrls property to a component's @Component metadata.
+
+This option is the most used way of using css in angular applications. */
+h6{
+    color: yellowgreen;
+}
