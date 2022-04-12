@@ -9,6 +9,13 @@ import { StrikethroughDirective } from './strikethrough.directive';
 import { DateCountPipe } from './date-count.pipe';
 import { GoalFormComponent } from './goal-form/goal-form.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+// import { NgProgressModule } from '@ngx-progressbar/core';
+// import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -17,15 +24,17 @@ import { FormsModule } from '@angular/forms';
     GoalDetailComponent,
     StrikethroughDirective,
     DateCountPipe,
-    GoalFormComponent
+    GoalFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
-
-    // we have imported the FormsModule and then added it to our imports array. We have done this import because the forms module is not available in our angular app by default. Our angular application can now work with any number of forms that we create thanks to the FormsModule
+    FormsModule,
+    HttpClientModule,
+    // NgProgressModule,
+    // NgProgressHttpClientModule,
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
